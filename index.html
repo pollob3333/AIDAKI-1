@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIDAKI Spin Wheel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AIDAKI</h1>
+    </header>
+
+    <nav class="top-nav">
+      <button onclick="showSection('ad-watch')">Ad Watch</button>
+      <button id="spin-nav-button" onclick="showSection('spin-wheel')" disabled>Spin</button>
+      <button onclick="showSection('invite-friend')">Invite Friend</button>
+      <!-- Menu Button with Dropdown -->
+      <div class="dropdown">
+        <button onclick="toggleMenu()" class="dropbtn">Menu</button>
+        <div id="dropdown-content" class="dropdown-content">
+          <a href="#" onclick="showSection('profile')">Profile</a>
+          <a href="#" onclick="showSection('sign-up')">Sign Up</a>
+          <a href="#" onclick="showSection('sign-in')">Sign In</a>
+          <a href="#" onclick="exit()">Exit</a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="content-section">
+      <h2>Welcome to the Spin Wheel Game!</h2>
+      <p>Use the menu to navigate through the options.</p>
+    </section>
+
+    <section id="ad-watch" class="content-section" style="display: none;">
+      <h2>Watch an Ad to Earn Spins</h2>
+      <button onclick="earnSpin()">Watch Ad (Earn 5 Spins)</button>
+      <p id="ad-timer" style="display: none;">Ad ends in <span id="time-left">45</span> seconds...</p>
+    </section>
+
+    <section id="spin-wheel" class="content-section" style="display: none;">
+  <h2>Spin the Wheel</h2>
+  <div class="wheel-container">
+    <div class="wheel" id="wheel">
+      <!-- Wheel Segments -->
+      <div class="segment" data-number="1">1</div>
+      <div class="segment" data-number="2">2</div>
+      <div class="segment" data-number="3">3</div>
+      <div class="segment" data-number="4">4</div>
+      <div class="segment" data-number="5">5</div>
+    </div>
+    <div class="coin" id="winning-coin"></div> <!-- Added coin for animation -->
+  </div>
+  <button onclick="spinWheel()">Spin</button>
+  <p>Spins Left: <span id="spins-left">0</span></p>
+</section>
+
+
+    <section id="balance" class="content-section" style="display: none;">
+      <h2>Your Balance</h2>
+      <p>Current Balance: <span id="balance-amount">0</span> points</p>
+    </section>
+
+    <section id="withdraw" class="content-section" style="display: none;">
+      <h2>Withdraw Your Earnings</h2>
+      <p>Minimum withdrawal: 100 points</p>
+
+      <!-- Withdrawal Method 1: bkash -->
+      <div>
+        <h3>Withdraw via bkash</h3>
+        <label for="bkash-number">Enter your bkash number:</label>
+        <input type="text" id="bkash-number" placeholder="Enter your bkash number">
+        <button onclick="withdraw('bkash')">Request Withdrawal</button>
+      </div>
+
+      <!-- Withdrawal Method 2: binance -->
+      <div>
+        <h3>Withdraw via Binance</h3>
+        <label for="binance-address">Enter your BEP20 address:</label>
+        <input type="text" id="binance-address" placeholder="Enter your BEP20 address">
+        <button onclick="withdraw('binance')">Request Withdrawal</button>
+      </div>
+    </section>
+
+    <section id="profile" class="content-section" style="display: none;">
+      <h2>Profile</h2>
+      <form id="profile-form">
+        <label for="profile-username">Username:</label>
+        <input type="text" id="profile-username" value="YourUsername" disabled>
+
+        <label for="profile-email">Email:</label>
+        <input type="email" id="profile-email" value="your.email@example.com" disabled>
+
+        <label for="profile-phone">Phone:</label>
+        <input type="tel" id="profile-phone" value="123-456-7890" disabled>
+
+        <button type="button" id="edit-profile" onclick="editProfile()">Edit Profile</button>
+        <button type="button" id="save-profile" onclick="saveProfile()" style="display: none;">Save</button>
+      </form>
+    </section>
+
+    <section id="sign-up" class="content-section" style="display: none;">
+      <h2>Sign Up</h2>
+      <form>
+        <label for="signup-email">Email:</label>
+        <input type="email" id="signup-email" required>
+        <label for="signup-password">Password:</label>
+        <input type="password" id="signup-password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </section>
+
+    <section id="sign-in" class="content-section" style="display: none;">
+      <h2>Sign In</h2>
+      <form>
+        <label for="signin-email">Email:</label>
+        <input type="email" id="signin-email" required>
+        <label for="signin-password">Password:</label>
+        <input type="password" id="signin-password" required>
+        <button type="submit">Sign In</button>
+      </form>
+    </section>
+
+    <section id="invite-friend" class="content-section" style="display: none;">
+  <h2>Invite a Friend</h2>
+  <p>Share this referral code with your friends to earn more spins!</p>
+  <input type="text" id="referral-code" value="REF12345" readonly>
+  <button onclick="copyReferralCode()">Copy Referral Code</button>
+</section>
+
+
+    <!-- New bottom navigation -->
+    <nav class="bottom-nav">
+      <button onclick="showSection('home')">Home</button>
+      <button onclick="showSection('balance')">Balance</button>
+      <button onclick="showSection('withdraw')">Withdraw</button>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

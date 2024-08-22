@@ -1,0 +1,271 @@
+
+body {
+  font-family: "Arial", sans-serif;
+  background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf5YYuINEZ2KW1PtR_LV3__snPtjt7Z-44hHOJErFWxUoXkh6aTDp60sg5UVpiumOcjINKcbCWrvMURySIZn8NmMLlFyBKN_wks1LIqMOeX_qz3SOse7ViZ3C6uIR8st5aTrvea_L1XwNG8MrJPbgx4qYTmAO9NSphIrqWSW-WRmaE_rUXGS62af0v6Qk/s500/4.png');
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh; /* Ensure full height of viewport */
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+nav.top-nav {
+  margin-bottom: 20px;
+}
+
+nav.top-nav button, nav.bottom-nav button {
+  background-color: #feb47b;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+nav.top-nav button:hover, nav.bottom-nav button:hover {
+  background: linear-gradient(145deg, #ff5722, #e91e63);
+  transform: translateY(-6px);
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+nav.top-nav button:active, nav.bottom-nav button:active {
+  transform: translateY(2px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.wheel-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fff;
+}
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhAdBcJOWXLhYbqnReo6wbxFF2LLMQiEy6r-Mo1DlSnKIiC6xj5cJKPYfrrDPVb_NbQ6MZFAB4LmIiJStfRFVMWDGeMyo413ko-5dY8w3q7hmyZOW-R_FSC-mPnN7UBi1gn_HhY0vA0N4OTIB3uVMwWNhJGbJQ8Sq1h6e6sLTkyDB5_AQPZFQ9U8yOEeo/s320/Untitled%20design%20(1).png');
+  background-size: cover;
+  position: relative;
+  transition: transform 2s ease-in-out;
+  transform-origin: center;
+}
+
+.wheel:hover {
+  box-shadow: 0 0 60px rgba(255, 140, 0, 1), inset 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.segment {
+  position: absolute;
+  width: 0%;
+  height: 0%;
+  background-color: #f7ff00;
+  clip-path: polygon(100% 0, 100% 100%, 50% 50%);
+  transform-origin: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  color: white;
+}
+
+.segment:nth-child(1) {
+  background-color: #ff0000;
+  transform: rotate(0deg);
+}
+.segment:nth-child(2) {
+  background-color: #00ff00;
+  transform: rotate(72deg);
+}
+.segment:nth-child(3) {
+  background-color: #0000ff;
+  transform: rotate(144deg);
+}
+.segment:nth-child(4) {
+  background-color: #ffff00;
+  transform: rotate(216deg);
+}
+.segment:nth-child(5) {
+  background-color: #ff00ff;
+  transform: rotate(288deg);
+}
+
+.coin {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhr9mSC1y19eZXy_FShF6zZ4GZZB54we-3yMCTaEMoBw2asTqz6QRozI5HWKH-HnBndTnZ22DBteZ0fRYbuY2vVBbOp8ek7nzVWNKkDK6la1U17ygFbtRDb3nnyjb_F38f_cxJriXqE_VS3t5qaQ1cArMKVZFIjk6rcTk9oAvw5LQ0QWmrYMlboK5kpv84/s320/1.1.png');
+  background-size: cover;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure coin is above other elements */
+  animation: growAndMove 2s ease-in-out forwards; /* Animation for coin */
+}
+
+@keyframes growAndMove {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(2);
+  }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    transform: translate(0, 90%) scale(0);
+  }
+}
+
+
+
+
+.wheel {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhAdBcJOWXLhYbqnReo6wbxFF2LLMQiEy6r-Mo1DlSnKIiC6xj5cJKPYfrrDPVb_NbQ6MZFAB4LmIiJStfRFVMWDGeMyo413ko-5dY8w3q7hmyZOW-R_FSC-mPnN7UBi1gn_HhY0vA0N4OTIB3uVMwWNhJGbJQ8Sq1h6e6sLTkyDB5_AQPZFQ9U8yOEeo/s320/Untitled%20design%20(1).png');
+  background-size: cover;
+  position: relative;
+  transition: transform 2s ease-in-out;
+  transform-origin: center;
+  animation: spinWheel 2s linear; /* Smooth spin animation */
+}
+
+@keyframes spinWheel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg); /* Adjust the degree for desired effect */
+  }
+}
+
+
+
+
+.bottom-nav {
+  margin-top: auto;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid #fff;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #feb47b;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #ff5722;
+}
+
+.show {
+  display: block;
+}
+
+/* Profile Form Styles */
+#profile-form {
+  margin: 20px auto;
+  text-align: left;
+  max-width: 400px;
+}
+
+#profile-form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+#profile-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#profile-form button {
+  background-color: #feb47b;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+#profile-form button:hover {
+  background: linear-gradient(145deg, #ff5722, #e91e63);
+  transform: translateY(-6px);
+  box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
